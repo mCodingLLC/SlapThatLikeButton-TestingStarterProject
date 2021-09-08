@@ -29,7 +29,7 @@ def test_regex_slaps():
     assert slap_many(LikeState.empty, '[ld]*ddl') is LikeState.liked
 
 
-@pytest.mark.xfail
+# @pytest.mark.xfail
 def test_divide_by_zero():
     assert 1 / 0 == 1
 
