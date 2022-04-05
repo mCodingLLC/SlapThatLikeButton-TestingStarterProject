@@ -1,5 +1,4 @@
-name: Tests
-
+name: Test suite run by tox
 on:
   - push
   - pull_request
@@ -9,7 +8,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest]
+        os: [ubuntu-latest]
         python-version: ['3.6', '3.7', '3.8', '3.9']
 
     steps:
@@ -21,6 +20,6 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install tox tox-gh-actions
+        pip install tox tox-gh-actions 
     - name: Test with tox
       run: tox

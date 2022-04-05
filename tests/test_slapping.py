@@ -10,9 +10,9 @@ def test_single_slaps():
     assert slap_many(LikeState.empty, 'l') is LikeState.liked
     assert slap_many(LikeState.empty, 'd') is LikeState.disliked
 
-
+#this decorater will allow us to feed bunch of test parameters to the function
 @pytest.mark.parametrize("test_input,expected", [
-    ('ll', LikeState.empty),
+    ('ll', LikeState.empty), # if like is cliked twice in that case like state should return empty
     ('dd', LikeState.empty),
     ('ld', LikeState.disliked),
     ('dl', LikeState.liked),
@@ -23,12 +23,13 @@ def test_single_slaps():
 def test_multi_slaps(test_input, expected):
     assert slap_many(LikeState.empty, test_input) is expected
 
-
+#to skip a test 
 @pytest.mark.skip(reason="regexes not supported yet")
 def test_regex_slaps():
     assert slap_many(LikeState.empty, '[ld]*ddl') is LikeState.liked
 
-
+# expected fail, but will not result in build failure 
+# should not be used with exceptions as we need to handel them
 @pytest.mark.xfail
 def test_divide_by_zero():
     assert 1 / 0 == 1
