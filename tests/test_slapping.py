@@ -1,5 +1,5 @@
 import pytest
-from slapping.slap_that_like_button import LikeState, slap_many
+from src.slapping.slap_that_like_button import LikeState, slap_many
 
 
 def test_empty_slap():
