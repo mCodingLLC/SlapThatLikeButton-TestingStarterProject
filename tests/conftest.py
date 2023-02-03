@@ -20,3 +20,4 @@ def db_conn():
     url = ...
     with db.connect(url) as conn:  # connection will be torn down after all tests finish
         yield conn
+   
